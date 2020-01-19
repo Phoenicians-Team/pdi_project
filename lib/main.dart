@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -22,11 +23,17 @@ class ActiveListening extends StatelessWidget {
         body: Column(
       children: <Widget>[
         Container(
-          child: Icon(
-            Icons.mic,
-            size: 200.0,
+          child: GestureDetector(
+            child: Icon(
+              Icons.mic,
+              size: 150.0,
+            ),
+            onTap: () {
+              print("tap");
+            },
+            // padding: EdgeInsets.only(top: 150, bottom: 100),
           ),
-          padding: EdgeInsets.only(top: 150, bottom: 100),
+          padding: EdgeInsets.only(top: 100, bottom: 50),
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 18.0),
@@ -37,45 +44,80 @@ class ActiveListening extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'you have ',
-                    style: TextStyle(fontSize: 30, color: Colors.grey),
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
                   ),
                   TextSpan(
                     text: 'cancer',
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 30,
                         fontStyle: FontStyle.italic,
                         color: Colors.black),
                   ),
                   TextSpan(
                     text: ' but with ',
-                    style: TextStyle(fontSize: 30, color: Colors.grey),
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
                   ),
                   TextSpan(
                     text: 'surgery',
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: 30,
                         fontStyle: FontStyle.italic,
                         color: Colors.black),
                   ),
+                  
                 ],
               ),
             ),
           ),
         ),
         Expanded(
-            child: ListView.builder(
-          itemCount: 3,
-          itemBuilder: (context, item) {
-            return Padding(
-              padding: const EdgeInsets.only(left: 40.0, bottom: 20.0),
-              child: Text(
-                "text - $item",
-                style: TextStyle(
-                  fontSize: 50,
+            child: ListView(
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 20.0),
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 50,
+                color: Colors.amber[600],
+                child: const Center(
+                  child: Text('What do you think is causing my problem?',
+                      style: TextStyle(fontSize: 20)),
                 ),
               ),
-            );
-          },
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 50,
+                color: Colors.amber[500],
+                child: const Center(
+                    child: Text(
+                        'Is there more than one condition (disease) that could be causing my problem?',
+                        style: TextStyle(fontSize: 20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                height: 70,
+                color: Colors.amber[100],
+                child: const Center(
+                    child: Text(
+                        'What tests will you do to diagnose the problem and which of the conditions is present?',
+                        style: TextStyle(fontSize: 20))),
+              ),
+            ),
+            Container(
+                child: FlatButton.icon(
+              color: Colors.green,
+              icon: Icon(Icons.settings),
+              label: Text('Manual Mode'), //`Text` to display
+              onPressed: () {
+                //Code to execute when Floating Action Button is clicked
+                //...
+              },
+            )),
+          ],
         )),
       ],
     ));
