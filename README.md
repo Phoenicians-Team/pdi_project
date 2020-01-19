@@ -1,3 +1,9 @@
+# Project Name: Ask The Doctor
+
+- Challenge: Communication & Cost
+- Tech Stack: Salesforce, Flutter, Dart
+- Team: Deb, Gerry, Shaila, Javier, Hendrix
+
 # pdi_project
 
 A new Flutter project.
